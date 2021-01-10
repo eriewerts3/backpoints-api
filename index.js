@@ -1,8 +1,6 @@
 let express = require('express');
-let Chance = require('chance');
 let app = express();
-let chance = new Chance();
-let backPoints = [];
+let bpContents = require('./lib/bpContents');
 
 // req is browser to server respons is server to browser
 app.get('/hello/:name', function(req, res, next){
@@ -11,15 +9,9 @@ app.get('/hello/:name', function(req, res, next){
 
 app.get('/api/v1/back-points', function(req, res, next){
 
-    backPoints.push({
-        rest: chance.integer({min: 1000, max: 2500,}),
-        healthy:chance.integer(),
-        dailyActivity:chance.integer(),
-        steps:chance.integer(),
-        day: new Date(),
-    });
+    bpContents.createNewEntry();
     
-    res.json(backPoints);
+    res.json(bpContents.getEntries());
 
 });
 
@@ -35,3 +27,4 @@ app.listen(3000, function(err){
     }
 });
 
+module.exports = app;
