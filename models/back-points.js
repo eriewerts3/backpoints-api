@@ -14,8 +14,9 @@ module.exports.createNewEntry = function() {
 
 module.exports.getEntries = function () {
     entries.forEach(e => {
-    //todo loop through entries and add 3day average before responding
-    //todo add tests to validate
+    //TODO loop through entries and add 3day average before responding
+    //TODO add tests to validate
+
      e.threeDayAverage = 123
     })
 

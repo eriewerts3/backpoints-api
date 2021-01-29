@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-let bpContents = require('./lib/bpContents');
+let bpContents = require('./models/back-points');
 
 // req is browser to server respons is server to browser
 app.get('/hello/:name', function(req, res, next){
