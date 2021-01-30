@@ -12,6 +12,12 @@ module.exports.createNewEntry = function() {
     });
 }
 
+function add(x, y) {
+    return x + y
+}
+
+let response = add(3, 1);
+
 module.exports.getEntries = function () {
     entries.forEach(e => {
     //TODO loop through entries and add 3day average before responding

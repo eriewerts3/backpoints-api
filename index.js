@@ -1,23 +1,8 @@
 let express = require('express');
 let app = express();
-let bpContents = require('./models/back-points');
+const bp = require('./controllers/api/v1/back-points');
 
-// req is browser to server respons is server to browser
-app.get('/hello/:name', function(req, res, next){
-    res.send('hello ' + req.params.name);
-});
-
-app.get('/api/v1/back-points', function(req, res, next){
-
-    bpContents.createNewEntry();
-    
-    res.json(bpContents.getEntries());
-
-});
-
-app.get('/', function(req, res, next){
-    res.send('<html><body><a href="/hello/john">Go to here</a></body></html>');
-});
+bp.registerEndpoints(app);
 
 app.listen(3000, function(err){
     if(!err) {

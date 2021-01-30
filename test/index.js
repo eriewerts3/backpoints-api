@@ -7,15 +7,6 @@ let expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('basic http tests', () => {
-    it('should call hello world', async() => {
-        // let response = 'hello john';
-
-        let response = await chai.request(server)
-            .get('/hello/world');
-
-
-        expect(response.text).to.equal('hello world');
-    });
 
     it('should call backpoints api correctly', async () => {
         let res = await chai.request(server)
