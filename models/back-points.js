@@ -1,31 +1,22 @@
-const entries = [];
-let Chance = require('chance');
-let chance = new Chance();
+const entry = require('./back-points-entry');
 
-module.exports.createNewEntry = function() {
-    entries.push({
-        rest: chance.integer({min: 1000, max: 2500,}),
-        healthy:chance.integer(),
-        dailyActivity:chance.integer(),
-        steps:chance.integer(),
-        day: new Date(),
-    });
-}
+/**
+ * A manager of creating multiple entries
+ */
 
-function add(x, y) {
-    return x + y
-}
+ class BpContents {
+    constructor () {
+        this.entries = [];
+    }
+    
+    createEntry(dow,steps,overactive,walk,drive, da) {
+        let e = new BPentry();
+        this.entries.push(e);
+    }
 
-let response = add(3, 1);
+    getEntries() {
+        return this.entries = [];
+    }
+ }
 
-module.exports.getEntries = function () {
-    entries.forEach(e => {
-    //TODO loop through entries and add 3day average before responding
-    //TODO add tests to validate
-
-     e.threeDayAverage = 123
-    })
-
-
-    return entries;
-}
+ module.exports = BpContents;
