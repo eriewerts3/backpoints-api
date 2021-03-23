@@ -19,24 +19,6 @@ class BPEntry {
         //TODO FT this.mp = this.mp; //measured pain
     }
 
-    // Funciton that finds the average of an array of any size by using Array.reduce() to add all the numbers in the array then deviding it by the array length
-    getAvg(array) {
-        let sum = array.reduce((a,c) => a + c, 0);
-        return sum / array.length;
-    }
-
-    // Function that takes the activity data from last 3 days then runs them through getAvg() to get an average
-    threeDayAvg(dayBefore,yesterday,today) {
-        let threeDayArray = [1,3,5];
-        return this.getAvg(threeDayArray);
-    }
-
-    // Function that takes the activity data from last 4 days then runs them through getAvg() to get an average
-    fourDayAvg(twoBefore,dayBefore,yesterday,today) {
-        let fourDayArray = [1,3,5,7];
-        return this.getAvg(fourDayArray);   
-    }
-
     dailyActivity(){
         let steps = this.steps;
         let oa = this.overactive;

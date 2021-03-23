@@ -20,64 +20,64 @@ it('should return entries array', function () {
         //TODO JH
     });
 })
-//TODO JH
-describe('johns homework', () => {
-    it('should get an array of entries I  added to the kennel', () => {
-        let bp1 = new BPEntry(...);
-        let bp2 = new BPEntry(...);
-        let bp3 = new BPEntry(...);
+// //TODO JH
+// describe('johns homework', () => {
+//     it('should get an array of entries I  added to the kennel', () => {
+//         let mar17 = new BPEntry(...);
+//         let mar18 = new BPEntry(...);
+//         let mar19 = new BPEntry(...);
         
-        let kennel = new BpContents();
-        kennel.addEntry(bp1)
-        kennel.addEntry(bp2)
-        kennel.addEntry(bp3)
-        let result = kennel.getEntries();
+//         let kennel = new BpContents();
+//         kennel.addEntry(mar17)
+//         kennel.addEntry(mar18)
+//         kennel.addEntry(mar19)
+//         let result = kennel.getEntries();
 
-        expect(result).to.be.an('array');
-        expect(result.length).to.equal(3);
-    });
+//         expect(result).to.be.an('array');
+//         expect(result.length).to.equal(3);
+//     });
 
-    it('should get an average of entries that i passed to the average function', () => {
-        let bp1 = new BPEntry(...);
-        let bp2 = new BPEntry(...);
-        let bp3 = new BPEntry(...);
+//     it('should get an average of entries that i passed to the average function', () => {
+//         let mar17 = new BPEntry(...);
+//         let mar18 = new BPEntry(...);
+//         let mar19 = new BPEntry(...);
         
-        let kennel = new BpContents();
-        kennel.addEntry(bp1)
-        kennel.addEntry(bp2)
-        kennel.addEntry(bp3)
-        let result = kennel.getAverage([bp1, bp2]);
+//         let kennel = new BpContents();
+//         kennel.addEntry(mar17)
+//         kennel.addEntry(mar18)
+//         kennel.addEntry(mar19)
+//         let result = kennel.getAverage([mar17, mar18]);
 
-        //should equal the average of bp1 and bp2
-        expect(result.length).to.equal(tbd); 
-    });
+//         //should equal the average of mar17 and mar18
+//         expect(result.length).to.equal(tbd); 
+//     });
 
-    it('should calculate the average of all the items added to the kennel', () => {
-        let bp1 = new BPEntry(...);
-        let bp2 = new BPEntry(...);
-        let bp3 = new BPEntry(...);
+//     it('should calculate the average of all the items added to the kennel', () => {
+//         let mar17 = new BPEntry(...);
+//         let mar18 = new BPEntry(...);
+//         let mar19 = new BPEntry(...);
         
-        let kennel = new BpContents();
-        kennel.addEntry(bp1)
-        kennel.addEntry(bp2)
-        kennel.addEntry(bp3)
-        let result = kennel.getAverage();
+//         let kennel = new BpContents();
+//         kennel.addEntry(mar17)
+//         kennel.addEntry(mar18)
+//         kennel.addEntry(mar19)
+//         let result = kennel.getAverage();
 
-        //should equal the average of bp1 and bp2 and bp3
-        expect(result.length).to.equal(tbd);
+//         //should equal the average of mar17 and mar18 and mar19
+//         expect(result.length).to.equal(tbd);
 
-    });
-});
+//     });
+// });
 
-//hints this stuff gets put into the "kennel"
+// //hints this stuff gets put into the "kennel"
 
-let entries = [];
+// let entries = [];
 
-function getAverage(arr) {
-    if(arr){
-        //go stuff with the array
-    } else {
-        // do stuff against entries array
+// function getAverage(arr) {
+//     if(arr){
+//         //go stuff with the array
+//     } else {
+//         // do stuff against entries array
         
-    }
-}
+//     }
+// }
