@@ -1,21 +1,24 @@
 let BpContents = require('../../../models/back-points');
+let BPEntry = require('../../../models/back-points-entry');
+
+let db = new BpContents();
 
 module.exports.registerEndpoints = (router) => {
     // this is the GET in Homework
     router.get('/api/v1/back-points', getBackPoints);
     router.post('/api/v1/back-points', createBackPoints);
 };
-//TODO ? I think req, res, next are API routes with Express.js do we need Express.js imported?
+
 function createBackPoints(req, res, next){
 
-    //instantiate a new instance of bp contents
-    let bpc = new BpContents();
+    // create a new entry
+    let entry = new BPEntry(req.body.dow, req.body.steps, req.body.overactive, req.body.walk, req.body.drive);
 
     // create a new backpoints entry
-    bpc.createEntry(req.body);
+    db.addEntry(entry);
     
     // get the list of entires
-    let entries = bpc.getEntries();
+    let entries = db.getEntries();
 
     // return the full list (including the new entry)
     res.json(entries);
@@ -23,11 +26,8 @@ function createBackPoints(req, res, next){
 
 function getBackPoints(req, res, next) {
 
-    //instantiate a new instance of bp contents
-    let bpc = new BpContents();
-
     // get the list of entires
-    let entries = bpc.getEntries();
+    let entries = db.getEntries();
 
     // sent it to the response (for the browser)
     res.json(entries);
