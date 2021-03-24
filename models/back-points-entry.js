@@ -24,8 +24,8 @@ class BPEntry {
         let drive = this.drive;
 
         let activity = steps + (oa*300) - (walk*2500) + (drive*500);
-        console.log(activity);
-        return activity
+        // console.log(activity);
+        return activity;
     }
 
 

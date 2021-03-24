@@ -10,8 +10,21 @@ let bpContents = require('../../models/back-points');
 let BPEntry = require('../../models/back-points-entry');
 
 describe('createEntry', function() {
-    it('should return an object', function () {
-        
+    it('should add an entry into entries', function () {
+        const db = new BpContents();
+
+        let entry = new BPEntry('Monday', 1000, 2, 0, 0);
+        let entry2 = new BPEntry('Tuesday', 1000, 2, 0, 0);
+        let entry3 = new BPEntry('Wednesday', 1000, 2, 0, 0);
+
+        db.addEntry(entry);
+        db.addEntry(entry2);
+        db.addEntry(entry3);
+
+        let entries = db.getEntries();
+
+        expect(entries).is.an('array');
+        expect(entries.length).equals(3);
     });
 
 })

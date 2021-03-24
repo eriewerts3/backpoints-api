@@ -1,15 +1,15 @@
-const { get } = require('..');
 const BPEntry = require('./back-points-entry');
-const entry = require('./back-points-entry');
 
 /**
  * A manager of creating multiple entries
  */
 
  class BpContents {
+    
     constructor () {
         this.entries = [];
     }
+
     // Funciton that finds the average of an array of any size by using Array.reduce() to add all the numbers in the array then deviding it by the array length
     get4DayAverage(arr) {
         
@@ -36,18 +36,21 @@ const entry = require('./back-points-entry');
             }
         }
     }
-    createEntry(dow,steps,overactive,walk,drive) {
-        let mar17 = new BPEntry('Wednesday',5900,2,0,0);
-        let mar18 = new BPEntry('Thursday',5192,5,0,0);
-        let mar19 = new BPEntry('Friday',1897,0,0,0);
-        let mar20 = new BPEntry('Saturday',6500,6,0,0)
 
-        this.entries.push(mar17,mar18,mar19,mar20);
+    /**
+     * adds a new bpentry to the database
+     * @param {BPEntry} newEntry the new entry you're passing to add
+     */
+    addEntry(newEntry) {
+        this.entries.push(newEntry);
     }
 
+    /**
+     * Get you all the entries stored in the database
+     * @returns 
+     */
     getEntries() {
-        
-        return this.entries = [];
+        return this.entries;
     }
  }
 
