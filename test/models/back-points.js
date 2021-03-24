@@ -11,8 +11,9 @@ let BPEntry = require('../../models/back-points-entry');
 
 describe('createEntry', function() {
     it('should return an object', function () {
-        //TODO JH
+        
     });
+
 })
 
 describe('getEntries', function() {
@@ -26,11 +27,13 @@ it('should return entries array', function () {
 //         let mar17 = new BPEntry(...);
 //         let mar18 = new BPEntry(...);
 //         let mar19 = new BPEntry(...);
+//         let mar20 = new BPEntry(...);
         
 //         let kennel = new BpContents();
 //         kennel.addEntry(mar17)
 //         kennel.addEntry(mar18)
 //         kennel.addEntry(mar19)
+//         kennel.addEntry(mar20)
 //         let result = kennel.getEntries();
 
 //         expect(result).to.be.an('array');
@@ -45,6 +48,7 @@ it('should return entries array', function () {
 //         let kennel = new BpContents();
 //         kennel.addEntry(mar17)
 //         kennel.addEntry(mar18)
+//         kennel.addEntry(mar19)
 //         kennel.addEntry(mar19)
 //         let result = kennel.getAverage([mar17, mar18]);
 

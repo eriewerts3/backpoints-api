@@ -13,8 +13,6 @@ class BPEntry {
         this.walk = walk; //hours walked
         this.drive = drive; //hours driven.
         this.da = this.dailyActivity(); // Daily activity
-        this.threeAverage = this.threeDayAvg();
-        this.fourAverage = this.fourDayAvg();
         //TODO FT this.FP = this.forcastedPain();
         //TODO FT this.mp = this.mp; //measured pain
     }
