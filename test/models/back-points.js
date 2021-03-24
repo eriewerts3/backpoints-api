@@ -35,66 +35,71 @@ it('should return entries array', function () {
     });
 })
 // //TODO JH
-// describe('johns homework', () => {
-//     it('should get an array of entries I  added to the kennel', () => {
-//         let mar17 = new BPEntry(...);
-//         let mar18 = new BPEntry(...);
-//         let mar19 = new BPEntry(...);
-//         let mar20 = new BPEntry(...);
+describe('johns homework', () => {
+    it('should get an array of entries I  added to the kennel', () => {
+        let entry = new BPEntry('Monday', 1000, 2, 0, 0);
+        let entry2 = new BPEntry('Tuesday', 1000, 2, 0, 0);
+        let entry3 = new BPEntry('Wednesday', 1000, 2, 0, 0);
+        let entry4 = new BPEntry('Thursday', 1000, 2, 0, 0);
         
-//         let kennel = new BpContents();
-//         kennel.addEntry(mar17)
-//         kennel.addEntry(mar18)
-//         kennel.addEntry(mar19)
-//         kennel.addEntry(mar20)
-//         let result = kennel.getEntries();
+        let kennel = new BpContents();
+        kennel.addEntry(entry);
+        kennel.addEntry(entry2);
+        kennel.addEntry(entry3);
+        kennel.addEntry(entry4);
+        let result = kennel.getEntries();
 
-//         expect(result).to.be.an('array');
-//         expect(result.length).to.equal(3);
-//     });
+        expect(result).to.be.an('array');
+        expect(result.length).to.equal(4);
+    });
 
-//     it('should get an average of entries that i passed to the average function', () => {
-//         let mar17 = new BPEntry(...);
-//         let mar18 = new BPEntry(...);
-//         let mar19 = new BPEntry(...);
+    it('should calculate the average of all the items added to the kennel', () => {
+        let entry = new BPEntry('Monday', 1000, 2, 0, 0);
+        let entry2 = new BPEntry('Tuesday', 1000, 2, 0, 0);
+        let entry3 = new BPEntry('Wednesday', 1000, 2, 0, 0);
+        let entry4 = new BPEntry('Thursday', 1000, 2, 0, 0);
         
-//         let kennel = new BpContents();
-//         kennel.addEntry(mar17)
-//         kennel.addEntry(mar18)
-//         kennel.addEntry(mar19)
-//         kennel.addEntry(mar19)
-//         let result = kennel.getAverage([mar17, mar18]);
+        let kennel = new BpContents();
+        kennel.addEntry(entry);
+        kennel.addEntry(entry2);
+        kennel.addEntry(entry3);
+        kennel.addEntry(entry4);
+        let result = kennel.getAverage();
 
-//         //should equal the average of mar17 and mar18
-//         expect(result.length).to.equal(tbd); 
-//     });
+        //should equal the average of mar17 and mar18
+        expect(result).to.equal(1600); 
 
-//     it('should calculate the average of all the items added to the kennel', () => {
-//         let mar17 = new BPEntry(...);
-//         let mar18 = new BPEntry(...);
-//         let mar19 = new BPEntry(...);
+    });
+
+    it('should get an average of entries that i passed to the average function', () => {
+        let entry = new BPEntry('Monday', 1000, 2, 0, 0);
+        let entry2 = new BPEntry('Tuesday', 1000, 2, 0, 0);
+        let entry3 = new BPEntry('Wednesday', 1000, 2, 0, 0);
+        let entry4 = new BPEntry('Thursday', 1000, 2, 0, 0);
         
-//         let kennel = new BpContents();
-//         kennel.addEntry(mar17)
-//         kennel.addEntry(mar18)
-//         kennel.addEntry(mar19)
-//         let result = kennel.getAverage();
+        let kennel = new BpContents();
+        kennel.addEntry(entry);
+        kennel.addEntry(entry2);
+        kennel.addEntry(entry3);
+        kennel.addEntry(entry4);
+        let result = kennel.getAverage([entry, entry2]);
 
-//         //should equal the average of mar17 and mar18 and mar19
-//         expect(result.length).to.equal(tbd);
+        //should equal the average of mar17 and mar18
+        expect(result).to.equal(1600); 
+    });
 
-//     });
-// });
+    
+});
 
 // //hints this stuff gets put into the "kennel"
 
 // let entries = [];
 
-// function getAverage(arr) {
-//     if(arr){
-//         //go stuff with the array
-//     } else {
-//         // do stuff against entries array
+function getAverage(arr) {
+    if(arr){
+        //do stuff with the array
+    } else {
+        // do stuff against entries array
         
-//     }
-// }
+    }
+}
