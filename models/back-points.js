@@ -31,6 +31,7 @@ const BPEntry = require('./back-points-entry');
         return sum / arr.length;
     }
 
+    
     // Funciton that finds the average of an array of any size by using Array.reduce() to add all the numbers in the array then deviding it by the array length
     // get4DayAverage(arr) {
         

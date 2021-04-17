@@ -11,14 +11,39 @@ let entry4 = new BPEntry('Thursday', 1000, 2, 0, 0);
 db.addEntry(entry);     
 db.addEntry(entry2);    
 db.addEntry(entry3);    
-db.addEntry(entry4);    
+db.addEntry(entry4);
+
 
 let entries = db.getEntries();
 
+function fourDayAverage() {
+    for (const item of entries) {
+        if (item.hasOwnProperty(fourDayAverage)) {
+            continue;
+        } else {
+            fourdays = []
+            for (let i = 4; i > 0; --i) {
+                fourdays.push(item[i]);
+            }
+            getAverage(fourdays);
+        }
+    }
+}
 
-console.info(entries[0].threeDayAverage); //entry
-console.info(entries[1].threeDayAverage); //e, e2
-console.info(entries[2].threeDayAverage); //e, e2, e3
-console.info(entries[3].threeDayAverage); //e2, e3, e4
+// Console loging entries to practice for of loop for to practice for homework
+function forofEntries() {
+    for (const item of entries) {
+        console.log(JSON.stringify(item))
+    }
+}
 
-console.log(entries);
+
+console.info(entries[0].fourDayAverage); //entry
+console.info(entries[1].fourDayAverage); //e, e2
+console.info(entries[2].fourDayAverage); //e, e2, e3
+console.info(entries[3].fourDayAverage); //e, e2, e3, e4
+console.info(entries[4].fourDayAverage); //e2, e3, e4, e5
+
+
+// console.log(entries);
+forofEntries();
