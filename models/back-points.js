@@ -1,12 +1,13 @@
 const BPEntry = require('./back-points-entry');
 
+
 /**
  * A manager of creating multiple entries
  */
 
- class BpContents {
-    
-    constructor () {
+class BpContents {
+
+    constructor() {
         this.entries = [];
     }
 
@@ -18,26 +19,15 @@ const BPEntry = require('./back-points-entry');
     getAverage(arr) {
 
         // if we dont use have the array passed in use entries
-        if(!arr){
+        if (!arr) {
             arr = this.entries;
         }
-        for (const item of arr) {
-            // if object has property of fouravg continue if now calculate based on last 4 days
-            if (item.hasOwnProperty(fouravg)) {
-                continue;
-            } else {
-                fourdays = []
-                for (let i = 4; i > 0; --i) {
-                    fourdays.push(item[i]);
-                }
-                let sum = 0
-                for (let i = 0; i < fourdays.length; i++) {
-                    sum = sum + arr[i].da;
-                    average4 = sum / fourdays.length;
-                }
-                item[i].fouravg = average4;
-            }
+
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum = sum + arr[i].da;
         }
+        return sum / arr.length;
     }
 
     /**
@@ -53,9 +43,39 @@ const BPEntry = require('./back-points-entry');
      * @returns 
      */
     getEntries() {
-        this.getAverage(entries);
+
+
+        for (let i = 0; i < this.entries; i++) {
+
+            switch (i) {
+                case 0:
+                    this.entries[i].fourDayAvg = this.entries[0].da;
+                    break;
+                case 1:
+                    this.entries[i].fourDayAvg = this.getAverage([this.entries[0], this.entries[1]]);
+                    break;
+                case 2:
+                    this.entries[i].fourDayAvg = this.getAverage([this.entries[0], this.entries[1], this.entries[2]]);
+                    break;
+                default:
+                    let arr = [];
+
+                    //get last 4 items from current index
+                    for (j = i; j > (i - 4); i--) {
+                        arr.push(this.entries[j]);
+                    }
+
+                    this.entries[i].fourDayAvg = this.getAverage(arr);
+
+                    break;
+            }
+
+            const element = this.entries[i];
+
+        }
+
         return this.entries;
     }
- }
+}
 
- module.exports = BpContents;
+module.exports = BpContents;
