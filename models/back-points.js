@@ -45,7 +45,7 @@ class BpContents {
     getEntries() {
 
 
-        for (let i = 0; i < this.entries; i++) {
+        for (let i = 0; i < this.entries.length; i++) {
 
             switch (i) {
                 case 0:
@@ -61,7 +61,7 @@ class BpContents {
                     let arr = [];
 
                     //get last 4 items from current index
-                    for (j = i; j > (i - 4); i--) {
+                    for (let j = i; j > (i - 4); j--) {
                         arr.push(this.entries[j]);
                     }
 
@@ -71,7 +71,6 @@ class BpContents {
             }
 
             const element = this.entries[i];
-
         }
 
         return this.entries;

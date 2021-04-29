@@ -51,6 +51,7 @@ describe('johns homework', () => {
 
         expect(result).to.be.an('array');
         expect(result.length).to.equal(4);
+        console.log(result);
     });
 
     it('should calculate the average of all the items added to the kennel', () => {
@@ -64,10 +65,13 @@ describe('johns homework', () => {
         kennel.addEntry(entry2);
         kennel.addEntry(entry3);
         kennel.addEntry(entry4);
-        let result = kennel.getAverage();
+        let result = kennel.getEntries();
 
-        //should equal the average of mar17 and mar18
-        expect(result).to.equal(1600); 
+        console.log(result);
+        expect(result[0].fourDayAvg).to.equal(1600);
+        expect(result[1].fourDayAvg).to.equal(1600);
+        expect(result[2].fourDayAvg).to.equal(1600);
+        expect(result[3].fourDayAvg).to.equal(1600); 
 
     });
 
@@ -82,7 +86,7 @@ describe('johns homework', () => {
         kennel.addEntry(entry2);
         kennel.addEntry(entry3);
         kennel.addEntry(entry4);
-        let result = kennel.getAverage([entry, entry2]);
+        let result = kennel.getAverage();
 
         //should equal the average of mar17 and mar18
         expect(result).to.equal(1600); 
@@ -91,15 +95,3 @@ describe('johns homework', () => {
     
 });
 
-// //hints this stuff gets put into the "kennel"
-
-// let entries = [];
-
-function getAverage(arr) {
-    if(arr){
-        //do stuff with the array
-    } else {
-        // do stuff against entries array
-        
-    }
-}
