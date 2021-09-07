@@ -1,4 +1,5 @@
 const BPEntry = require('./back-points-entry');
+const fs = require('fs');
 
 
 /**
@@ -8,7 +9,7 @@ const BPEntry = require('./back-points-entry');
 class BpContents {
 
     constructor() {
-        this.entries = [];
+        
     }
 
     /**
@@ -36,6 +37,7 @@ class BpContents {
      */
     addEntry(newEntry) {
         this.entries.push(newEntry);
+        fs.writeFileSync('./myData.json', JSON.stringify(this.entries, null, 4));
     }
 
     /**
@@ -43,6 +45,14 @@ class BpContents {
      * @returns 
      */
     getEntries() {
+
+        let contents = fs.readFileSync('./myData.json', 'utf-8');
+
+        if (contents.length == 0) {
+            this.entries = [];
+        } else {
+            this.entries = JSON.parse(contents);
+        }
 
 
         for (let i = 0; i < this.entries.length; i++) {
