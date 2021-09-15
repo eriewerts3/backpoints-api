@@ -1,18 +1,18 @@
-const assert = require('assert');
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-const { response } = require('../../index');
-let server = require('../../index');
+const assert = require("assert");
+let chai = require("chai");
+let chaiHttp = require("chai-http");
+const { response } = require("../../index");
+let server = require("../../index");
 let expect = chai.expect;
 chai.use(chaiHttp);
-let BPEntry = require('../../models/back-points-entry');
+let BPEntry = require("../../models/back-points-entry");
 
-describe.skip('dailyActivity',function() {
-    it('should return a number', function () {
-        let bpEntry = new BPEntry('Monday',5000,2,1,2); //TODO jh ADD TO OTHER TESTS
-        let result = bpEntry.getAvg();
-        expect(result).to.be.a('number');
-    });
+describe.skip("dailyActivity", function () {
+  it("should return a number", function () {
+    let bpEntry = new BPEntry("Monday", 5000, 2, 1, 2); //TODO jh ADD TO OTHER TESTS
+    let result = bpEntry.getAvg();
+    expect(result).to.be.a("number");
+  });
 
-    //TODO ? How do I write a test on functionality with the parameter variables referencing a seperate object
-})
+  //TODO ? How do I write a test on functionality with the parameter variables referencing a seperate object
+});
