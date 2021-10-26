@@ -1,5 +1,6 @@
 const BPEntry = require('./back-points-entry');
-const fs = require('fs');
+//const fs = require('fs');
+const {MongoClient} = require('mongodb');
 
 
 /**
@@ -8,8 +9,15 @@ const fs = require('fs');
 
 class BpContents {
 
+    // client;
+
     constructor() {
+        //connection string
+        const uri = "mongodb+srv://dbUser:47SexcstaFkX72Qi@cluster0.wike7.mongodb.net/admin?replicaSet=atlas-f7ubs3-shard-0&readPreference=primary&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1"/**TODO need to find login info for cluster see notes */
         
+        //build new mongo connection object
+        this.client = new MongoClient(uri);
+        this.isConnected = false;
     }
 
     /**
@@ -44,10 +52,17 @@ class BpContents {
      * Get you all the entries stored in the database
      * @returns 
      */
-    getEntries() {
+    async getEntries() {
+        
+        //ensure that we are connected to mongo
+        if(!this.isConnected) {
+            await this.client.connect();
+            this.isConnected = true;
+        }
 
-        let contents = fs.readFileSync('./myData.json', 'utf-8');
-
+        //let contents = fs.readFileSync('./myData.json', 'utf-8');
+        let contents = await client.db('backPoints').collection('entries').aggregate([{$match: {}}]).toArray();
+        
         if (contents.length == 0) {
             this.entries = [];
         } else {
