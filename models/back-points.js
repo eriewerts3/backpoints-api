@@ -1,13 +1,14 @@
+
 const BPEntry = require('./back-points-entry');
 //const fs = require('fs');
 const {MongoClient} = require('mongodb');
-
 
 /**
  * A manager of creating multiple entries
  */
 
 class BpContents {
+
 
     // client;
 
@@ -18,34 +19,36 @@ class BpContents {
         //build new mongo connection object
         this.client = new MongoClient(uri);
         this.isConnected = false;
+
     }
 
-    /**
-     * Gets an average of entries
-     * @param {BPEntry[]} [arr=this.entries[]] arr Array of BP Entries (optional)
-     * @returns 
-     */
-    getAverage(arr) {
-
-        // if we dont use have the array passed in use entries
-        if (!arr) {
-            arr = this.entries;
-        }
-
-        let sum = 0
-        for (let i = 0; i < arr.length; i++) {
-            sum = sum + arr[i].da;
-        }
-        return sum / arr.length;
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum = sum + arr[i].da;
     }
+    return sum / arr.length;
+  }
 
-    /**
-     * adds a new bpentry to the database
-     * @param {BPEntry} newEntry the new entry you're passing to add
-     */
-    addEntry(newEntry) {
-        this.entries.push(newEntry);
-        fs.writeFileSync('./myData.json', JSON.stringify(this.entries, null, 4));
+  /**
+   * adds a new bpentry to the database
+   * @param {BPEntry} newEntry the new entry you're passing to add
+   */
+  addEntry(newEntry) {
+    this.entries.push(newEntry);
+    fs.writeFileSync("./myData.json", JSON.stringify(this.entries, null, 4));
+  }
+
+  /**
+   * Get you all the entries stored in the database
+   * @returns
+   */
+  getEntries() {
+    let contents = fs.readFileSync("./myData.json", "utf-8");
+
+    if (contents.length == 0) {
+      this.entries = [];
+    } else {
+      this.entries = JSON.parse(contents);
     }
 
     /**
@@ -100,6 +103,9 @@ class BpContents {
 
         return this.entries;
     }
+
+    return this.entries;
+  }
 }
 
 module.exports = BpContents;

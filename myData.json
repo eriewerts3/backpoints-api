@@ -1,18 +1,34 @@
 [
-    {
-        "dow": "Monday",
-        "steps": 123,
-        "overactive": 12,
-        "walk": 1000,
-        "drive": 10,
-        "da": -2491277
-    },
-    {
-        "dow": "Tuesday",
-        "steps": 123,
-        "overactive": 12,
-        "walk": 1000,
-        "drive": 10,
-        "da": -2491277
-    }
+  {
+    "dow": "Monday",
+    "steps": 123,
+    "overactive": 12,
+    "walk": 1000,
+    "drive": 10,
+    "da": -2491277
+  },
+  {
+    "dow": "Tuesday",
+    "steps": 123,
+    "overactive": 12,
+    "walk": 1000,
+    "drive": 10,
+    "da": -2491277
+  },
+  {
+    "dow": "Wednesday",
+    "steps": 2700,
+    "overactive": 1,
+    "walk": 1,
+    "drive": 1,
+    "da": 3400
+  },
+  {
+    "dow": "Thursday",
+    "steps": 2700,
+    "overactive": 1,
+    "walk": 1,
+    "drive": 1,
+    "da": 3400
+  }
 ]
