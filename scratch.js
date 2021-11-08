@@ -1,34 +1,31 @@
 const BpContents = require("./models/back-points");
 const BPEntry = require("./models/back-points-entry");
+const {MongoClient} = require('mongodb');
+const { response } = require("express");
 
-const db = new BpContents();
 
-let entry = new BPEntry("Monday", 1000, 2, 0, 0);
-let entry2 = new BPEntry("Tuesday", 1000, 2, 0, 0);
-let entry3 = new BPEntry("Wednesday", 1000, 2, 0, 0);
-let entry4 = new BPEntry("Thursday", 1000, 2, 0, 0);
-let entry5 = new BPEntry("Friday", 2800, 2, 0, 0);
+async function main() {
+  
+  //connection string
+  const uri = "mongodb+srv://dbUser:47SexcstaFkX72Qi@cluster0.wike7.mongodb.net/admin?replicaSet=atlas-f7ubs3-shard-0&readPreference=primary&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1"/**TODO need to find login info for cluster see notes */
+  
+  //build new mongo connection object
+  const client = new MongoClient(uri);
+  
+  // use that new client to connect
+  await client.connect();
+  
+  //use the client to reference the collection object for entries collection
+  const coll = client.db('backPoints').collection('entries');
 
-db.addEntry(entry);
-db.addEntry(entry2);
-db.addEntry(entry3);
-db.addEntry(entry4);
-db.addEntry(entry5);
+  let response = await coll.aggregate([{$match: {}}]).toArray();
 
-let entries = db.getEntries(); //TODO cant figure out why entries isnt being created
-
-// Console loging entries to practice for of loop for to practice for homework
-function forofEntries() {
-  for (const item of entries) {
-    console.log(JSON.stringify(item));
-  }
+  console.info(JSON.stringify(response, null, 4));
+  
+  client.close();
 }
 
-console.info(entries[0].fouravg); //entry
-console.info(entries[1].fouravg); //e, e2
-console.info(entries[2].fouravg); //e, e2, e3
-console.info(entries[3].fouravg); //e, e2, e3, e4
-console.info(entries[4].fouravg); //e2, e3, e4, e5
 
-// console.log(entries);
-forofEntries();
+(async () => {
+    main();
+})();

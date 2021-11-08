@@ -24,10 +24,10 @@ function createBackPoints(req, res, next){
     res.json(entries);
 }
 
-function getBackPoints(req, res, next) {
+async function getBackPoints(req, res, next) {
 
     // get the list of entires
-    let entries = db.getEntries();
+    let entries = await db.getEntries();
 
     // sent it to the response (for the browser)
     res.json(entries);
