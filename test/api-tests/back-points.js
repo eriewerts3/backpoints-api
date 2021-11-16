@@ -18,8 +18,8 @@ describe("api-tests/back-points", () => {
 
     // get body object from response (other things we can get are headers)
     let resArray = response.body;
-    console.log(response).stringify();
-    console.log(resArray);
+    // console.log(response).stringify();
+    // console.log(resArray);
 
     expect(resArray).to.be.an("array");
   });
