@@ -54,7 +54,7 @@ class BpContents {
     }
 
     //let contents = fs.readFileSync('./myData.json', 'utf-8');
-    let contents = await client
+    let contents = await this.client
       .db("backPoints")
       .collection("entries")
       .aggregate([{ $match: {} }])
