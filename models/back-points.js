@@ -13,7 +13,12 @@ class BpContents {
     // client;
 
     constructor() {
-        
+        //connection string
+        const uri = "mongodb+srv://dbUser:47SexcstaFkX72Qi@cluster0.wike7.mongodb.net/admin?replicaSet=atlas-f7ubs3-shard-0&readPreference=primary&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1"/**TODO need to find login info for cluster see notes */
+          
+        //build new mongo connection object
+        this.client = new MongoClient(uri);
+        this.isConnected = false;
     }
 
   /**
@@ -33,15 +38,11 @@ class BpContents {
   }
 
 
-  addEntry(newEntry) {
+  async addEntry(newEntry) {
     //ensure that we are connected to mongo
     if(this.isConnected) {
-      //connection string
-      const uri = "mongodb+srv://dbUser:47SexcstaFkX72Qi@cluster0.wike7.mongodb.net/admin?replicaSet=atlas-f7ubs3-shard-0&readPreference=primary&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1"/**TODO need to find login info for cluster see notes */
-        
-      //build new mongo connection object
-      this.client = new MongoClient(uri);
-      this.isConnected = false;
+        await this.client.connect();
+        this.isConnected = true;
     }
     this.entries.push(newEntry);
     fs.writeFileSync("./myData.json", JSON.stringify(this.entries, null, 4));
@@ -60,12 +61,12 @@ class BpContents {
       }
 
       //let contents = fs.readFileSync('./myData.json', 'utf-8');
-      let contents = await client.db('backPoints').collection('entries').aggregate([{$match: {}}]).toArray();
+      let contents = await this.client.db('backPoints').collection('entries').aggregate([{$match: {}}]).toArray();
       
       if (contents.length == 0) {
           this.entries = [];
       } else {
-          this.entries = JSON.parse(contents);
+          this.entries = contents;
       }
 
 

@@ -4,7 +4,7 @@ let app = express();
 
 app.use(bodyParser.json());
 const bp = require("./controllers/api/v1/back-points");
-const BPEntry = require("./models/back-points-entry");
+// const BPEntry = require("./models/back-points-entry");
 
 bp.registerEndpoints(app);
 
