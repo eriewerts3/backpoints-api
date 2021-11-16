@@ -6,7 +6,7 @@ let server = require("../../index");
 const BpContents = require("../../models/back-points");
 let expect = chai.expect;
 chai.use(chaiHttp);
-let bpContents = require("../../models/back-points");
+// let bpContents = require("../../models/back-points"); dont need
 let BPEntry = require("../../models/back-points-entry");
 
 describe("createEntry", function () {
@@ -33,9 +33,9 @@ describe("getEntries", function () {
     //TODO JH
   });
 });
-// //TODO JH
-describe.skip("johns homework", () => {
-  it("should get an array of entries I  added to the kennel", () => {
+
+describe.skip("", () => {
+  it("should get an array of entries I  added to BpContents", () => {
     let entry = new BPEntry("Monday", 1000, 2, 0, 0);
     let entry2 = new BPEntry("Tuesday", 1000, 2, 0, 0);
     let entry3 = new BPEntry("Wednesday", 1000, 2, 0, 0);
@@ -53,7 +53,7 @@ describe.skip("johns homework", () => {
     console.log(result);
   });
 
-  it("should calculate the average of all the items added to the kennel", () => {
+  it("should calculate the average of all the items added to the BpContents", () => {
     let entry = new BPEntry("Monday", 1000, 2, 0, 0);
     let entry2 = new BPEntry("Tuesday", 1000, 2, 0, 0);
     let entry3 = new BPEntry("Wednesday", 1000, 2, 0, 0);
@@ -73,7 +73,7 @@ describe.skip("johns homework", () => {
     expect(result[3].fourDayAvg).to.equal(1600);
   });
 
-  it("should get an average of entries that i passed to the average function", () => {
+  it("should get an average of entries that I passed to the getaverage function", () => {
     let entry = new BPEntry("Monday", 1000, 2, 0, 0);
     let entry2 = new BPEntry("Tuesday", 1000, 2, 0, 0);
     let entry3 = new BPEntry("Wednesday", 1000, 2, 0, 0);

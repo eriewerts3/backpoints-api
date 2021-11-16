@@ -13,6 +13,4 @@ describe.skip("dailyActivity", function () {
     let result = bpEntry.getAvg();
     expect(result).to.be.a("number");
   });
-
-  //TODO ? How do I write a test on functionality with the parameter variables referencing a seperate object
 });
