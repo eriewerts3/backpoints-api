@@ -9,7 +9,7 @@ let BPEntry = require("../../models/back-points-entry");
 
 describe.skip("dailyActivity", function () {
   it("should return a number", function () {
-    let bpEntry = new BPEntry("Monday", 5000, 2, 1, 2); //TODO jh ADD TO OTHER TESTS
+    let bpEntry = new BPEntry("Monday", 5000, 2, 1, 2); //
     let result = bpEntry.getAvg();
     expect(result).to.be.a("number");
   });
