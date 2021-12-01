@@ -17,10 +17,6 @@ class BpContents {
         this.isConnected = false;
     }
 
-  /**
-   * adds a new bpentry to the database
-   * @param {BPEntry} newEntry the new entry you're passing to add
-   */
   getAverage(arr) {
     if (!arr) {
       arr = this.entries;
@@ -32,7 +28,10 @@ class BpContents {
     }
     return sum / arr.length;
   }
-
+  /**
+   * adds a new bpentry to the database
+   * @param {BPEntry} newEntry the new entry you're passing to add
+   */
   async addEntry(newEntry) {
     //ensure that we are connected to mongo
     if(this.isConnected) {

@@ -9,7 +9,8 @@ chai.use(chaiHttp);
 // let bpContents = require("../../models/back-points"); dont need
 let BPEntry = require("../../models/back-points-entry");
 
-describe("createEntry", function () {
+
+describe("addEntry", function () {
   it("should add an entry into entries", async function () {
     const db = new BpContents();
 
@@ -24,16 +25,26 @@ describe("createEntry", function () {
     let entries = await db.getEntries();
 
     expect(entries).is.an("array");
-    expect(entries.length).greaterThan(1);
+    expect(entries.length).greaterThan(2);
   });
 });
 
 describe("getEntries", function () {
   it("should return entries array", function () {
-    //TODO JH
+    //TODO Is this not already done in 
   });
 });
 
+// Work in progress
+// describe("getAverage", function () {
+//   it("should return a number that is an average daily activity of the array")
+
+//     let entry = new BPEntry("Monday", 1000, 2, 0, 0);
+//     let entry2 = new BPEntry("Tuesday", 1000, 2, 0, 0);
+//     let entry3 = new BPEntry("Wednesday", 1000, 2, 0, 0);
+
+//     let result = 
+// });
 describe.skip("", () => {
   it("should get an array of entries I  added to BpContents", () => {
     let entry = new BPEntry("Monday", 1000, 2, 0, 0);

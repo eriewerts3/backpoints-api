@@ -7,10 +7,11 @@ let expect = chai.expect;
 chai.use(chaiHttp);
 let BPEntry = require("../../models/back-points-entry");
 
-describe.skip("dailyActivity", function () {
-  it("should return a number", function () {
-    let bpEntry = new BPEntry("Monday", 5000, 2, 1, 2); //
-    let result = bpEntry.getAvg();
+describe("dailyActivity", function () {
+  it("should return a number based on formula", function () {
+    let bpEntry = new BPEntry("Monday", 5000, 2, 1, 2);
+    let result = bpEntry.dailyActivity; 
     expect(result).to.be.a("number");
+    expect(result).to.equal(4100);
   });
 });
