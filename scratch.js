@@ -1,18 +1,13 @@
-// const axios = require('axios').default;
-const BP = require('./models/back-points');
-// const axios = require('axios').default;
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://cadevJO:d3m0Journey@dev-ue1-ca.hvarf.mongodb.net?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
 
-async function main() {
-    // let response = await axios.get('https://mdb.myacxiom.com/api/v1/healthcheck/version')
-
-    // console.log(response.data.version);
-    const bp = new BP();
-
-    let response = await bp.getEntries();
-    console.dir(response);
-}
-
-
-(async () => {
-    main();
-})();
+    if(err) {
+        console.error(err);
+    } else {
+        const collection = client.db("test").collection("devices");
+        // perform actions on the collection object
+        client.close();
+    }
+});
