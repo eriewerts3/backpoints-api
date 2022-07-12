@@ -56,7 +56,7 @@ class BpContents {
     let contents = await this.client
       .db("backPoints")
       .collection("entries")
-      .aggregate([{ $match: {} }])
+      .aggregate([{$match: {}}, {$project:{"_id": 0}}])
       .toArray();
 
     if (contents.length == 0) {
